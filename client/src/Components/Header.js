@@ -4,13 +4,16 @@ class Header extends Component {
   render() {
     return (
       <nav>
-        <div className="nav-wrapper">
-          <a href="#" className="left brand-logo">
-            Hommies
+        <div class="nav-wrapper container">
+          <a href="#!" class="brand-logo">
+            Logo
           </a>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
             <li>
-              <a href="sass.html">Login</a>
+              <a href="sass.html">Log in</a>
             </li>
           </ul>
         </div>

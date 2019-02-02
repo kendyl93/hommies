@@ -12,9 +12,11 @@ const App = () => (
     <BrowserRouter>
       <div>
         <Header />
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/my-groups" component={Dashboard} />
-        <Route path="/my-groups/new" component={groupNew} />
+        <div className="container">
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/my-groups" component={Dashboard} />
+          <Route path="/my-groups/new" component={groupNew} />
+        </div>
       </div>
     </BrowserRouter>
   </div>
