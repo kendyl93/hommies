@@ -1,5 +1,22 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-const App = () => <div>Hi there</div>;
+const Header = () => <h2>Header</h2>;
+const Dashboard = () => <h2>Dashboard</h2>;
+const groupNew = () => <h2>groupNew</h2>;
+const Landing = () => <h2>Landing</h2>;
+
+const App = () => (
+  <div>
+    <BrowserRouter>
+      <div>
+        <Header />
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/my-groups" component={Dashboard} />
+        <Route path="/my-groups/new" component={groupNew} />
+      </div>
+    </BrowserRouter>
+  </div>
+);
 
 export default App;
