@@ -6,10 +6,7 @@ const keys = require('./config/keys');
 require('./models/User');
 require('./services/passport');
 
-mongoose.connect(
-  keys.mongoURI,
-  { useNewUrlParser: true }
-);
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
 const app = express();
 
@@ -23,6 +20,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
+
+if (process.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(ath.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
